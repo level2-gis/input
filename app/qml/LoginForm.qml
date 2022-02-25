@@ -217,6 +217,7 @@ Rectangle {
       }
 
 //Remove signup button
+//
 /*      Button {
         id: signUpButton
         width: loginForm.width - 2 * loginForm.panelMargin
