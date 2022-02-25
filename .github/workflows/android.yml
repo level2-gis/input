@@ -244,28 +244,28 @@ jobs:
             echo "CI_VERSION_CODE=${VERSION_CODE}" >> $GITHUB_ENV
             echo "CALCULATED VERSION CODE: ${VERSION_CODE}"
 
-      - name: Build AAB
-        if: ${{ env.GIT_BRANCH }} == "master"
-        env:
-          ARCH: 'armeabi-v7a arm64-v8a'
-          ANDROID_NDK_ROOT: ${{ steps.setup-ndk.outputs.ndk-path }}
-          ANDROID_NDK_HOST: darwin-x86_64
-          QT_BASE: ${{ github.workspace }}/Qt/${{ env.QT_VERSION }}/android
-          SOURCE_DIR: ${{ github.workspace }}
-
-        run: |
-            pwd
-            echo "Version code: ${{env.CI_VERSION_CODE}}"
-            mkdir -p ${{ github.workspace }}/build-aab
-            cd ${{ github.workspace }}/build-aab
-            ../scripts/android-aab.bash
-
-      - name: Upload AAB to Artifacts
-        if: ${{ env.GIT_BRANCH }} == "master"
-        uses: actions/upload-artifact@v2
-        with:
-          path: ${{ github.workspace }}/build-aab/input/out/build/outputs/bundle/release/out-release.aab
-          name: aab bundle
+#      - name: Build AAB
+#        if: ${{ env.GIT_BRANCH }} == "master"
+#        env:
+#          ARCH: 'armeabi-v7a arm64-v8a'
+#          ANDROID_NDK_ROOT: ${{ steps.setup-ndk.outputs.ndk-path }}
+#          ANDROID_NDK_HOST: darwin-x86_64
+#          QT_BASE: ${{ github.workspace }}/Qt/${{ env.QT_VERSION }}/android
+#          SOURCE_DIR: ${{ github.workspace }}
+#
+#        run: |
+#            pwd
+#            echo "Version code: ${{env.CI_VERSION_CODE}}"
+#            mkdir -p ${{ github.workspace }}/build-aab
+#            cd ${{ github.workspace }}/build-aab
+#            ../scripts/android-aab.bash
+#
+#      - name: Upload AAB to Artifacts
+#        if: ${{ env.GIT_BRANCH }} == "master"
+#        uses: actions/upload-artifact@v2
+#        with:
+#          path: ${{ github.workspace }}/build-aab/input/out/build/outputs/bundle/release/out-release.aab
+#          name: aab bundle
 
       - name: Check generated files
         run: |
