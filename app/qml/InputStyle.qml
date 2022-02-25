@@ -13,7 +13,7 @@ import QtQuick 2.0
 QtObject {
 
     // Primary colors
-    property color fontColor: "#006146"
+    property color fontColor: "#347dbe"
     property color fontColorBright: "#679D70"
     property color panelBackground2: "#C6CCC7"
     property color activeButtonColor: "#006146"
