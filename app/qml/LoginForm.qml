@@ -216,7 +216,7 @@ Rectangle {
         }
       }
 
-      Button {
+/*      Button {
         id: signUpButton
         width: loginForm.width - 2 * loginForm.panelMargin
         height: fieldHeight * 0.7
@@ -236,7 +236,7 @@ Rectangle {
           verticalAlignment: Text.AlignVCenter
           elide: Text.ElideRight
         }
-      }
+      }*/
 
       Button {
         id: resetPasswordButton
