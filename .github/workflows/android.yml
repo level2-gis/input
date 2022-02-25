@@ -139,17 +139,17 @@ jobs:
 #              -k "$MERGINSECRETS_DECRYPT_KEY" \
 #              -md md5
 #
-#      - name: Extract GPS keystore
-#        env:
-#          INPUTKEYSTORE_DECRYPT_KEY: ${{ secrets.INPUTKEYSTORE_DECRYPT_KEY }}
-#
-#        run: |
-#          /usr/local/opt/openssl@1.1/bin/openssl \
-#           aes-256-cbc -d \
-#           -in Input_keystore.keystore.enc \
-#           -out Input_keystore.keystore \
-#           -k $INPUTKEYSTORE_DECRYPT_KEY \
-#           -md md5
+      - name: Extract GPS keystore
+        env:
+          INPUTKEYSTORE_DECRYPT_KEY: ${{ secrets.INPUTKEYSTORE_DECRYPT_KEY }}
+
+        run: |
+          /usr/local/opt/openssl@1.1/bin/openssl \
+           aes-256-cbc -d \
+           -in Input_keystore.keystore.enc \
+           -out Input_keystore.keystore \
+           -k $INPUTKEYSTORE_DECRYPT_KEY \
+           -md md5
 
        # Android SDK & NDK
       - uses: nttld/setup-ndk@v1
@@ -211,15 +211,15 @@ jobs:
       - name: Upload v8 APK to Artifacts
         uses: actions/upload-artifact@v2
         with:
-#          path: ${{ github.workspace }}/build-apk-arm64-v8a/input/out/build/outputs/apk/release/out-release-signed.apk
-          path: ${{ github.workspace }}/build-apk-arm64-v8a/input/out/build/outputs/apk/debug/out-debug.apk
+          path: ${{ github.workspace }}/build-apk-arm64-v8a/input/out/build/outputs/apk/release/out-release-signed.apk
+#          path: ${{ github.workspace }}/build-apk-arm64-v8a/input/out/build/outputs/apk/debug/out-debug.apk
           name: arm64 apk
 
       - name: Upload v7 APK to Artifacts
         uses: actions/upload-artifact@v2
         with:
-#          path: ${{ github.workspace }}/build-apk-armeabi-v7a/input/out/build/outputs/apk/release/out-release-signed.apk
-          path: ${{ github.workspace }}/build-apk-armeabi-v7a/input/out/build/outputs/apk/debug/out-debug.apk
+          path: ${{ github.workspace }}/build-apk-armeabi-v7a/input/out/build/outputs/apk/release/out-release-signed.apk
+#          path: ${{ github.workspace }}/build-apk-armeabi-v7a/input/out/build/outputs/apk/debug/out-debug.apk
           name: armeabi apk
 
       - name: Download repo history
