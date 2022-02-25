@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   android_build:
-    if: ( github.repository == 'lutraconsulting/input' ) && (!contains(github.event.head_commit.message, 'Translate '))
+    if: ( github.repository == 'level2-gis/input' ) && (!contains(github.event.head_commit.message, 'Translate '))
     runs-on: macos-10.15
     env:
       QT_VERSION: '5.14.2'
