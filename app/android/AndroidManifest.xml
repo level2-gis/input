@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<manifest package="uk.co.lutraconsulting"
+<manifest package="si.co.level2"
           xmlns:android="http://schemas.android.com/apk/res/android"
           android:versionName="__BASH_REPLACE_VERSION__"
           android:versionCode="__BASH_REPLACE_CODE__"
