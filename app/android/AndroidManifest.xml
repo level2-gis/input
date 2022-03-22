@@ -12,7 +12,7 @@
                  android:preserveLegacyExternalStorage="true">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
                   android:name="si.co.level2.InputActivity"
-                  android:label="Input"
+                  android:label="Zajem"
                   android:screenOrientation="unspecified"
                   android:launchMode="singleTop"
                   android:theme="@style/SplashScreenTheme">
