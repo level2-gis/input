@@ -27,7 +27,7 @@ ApplicationWindow {
     width:  __appwindowwidth
     height: __appwindowheight
     visibility: __appwindowvisibility
-    title: "Input" // Do not translate
+    title: "Zajem" // Do not translate
 
     Item {
         id: stateManager

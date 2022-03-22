@@ -102,7 +102,7 @@ QString AndroidUtils::readExif( const QString &filePath, const QString &tag )
 #ifdef ANDROID
   QAndroidJniObject jFilePath = QAndroidJniObject::fromString( filePath );
   QAndroidJniObject jTag = QAndroidJniObject::fromString( tag );
-  QAndroidJniObject attribute = QAndroidJniObject::callStaticObjectMethod( "uk.co.lutraconsulting.EXIFUtils",
+  QAndroidJniObject attribute = QAndroidJniObject::callStaticObjectMethod( "si.co.level2.EXIFUtils",
                                 "getEXIFAttribute",
                                 "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
                                 jFilePath.object<jstring>(),
@@ -137,7 +137,7 @@ bool AndroidUtils::findLegacyFolder( QString &legacyFolderPath )
   {
     CoreUtils::log( "$$: Migration", "Ext path " + extDir.path() + " is not readable!" );
 
-    QStringList split = QDir::homePath().split( "/" ); // something like /data/user/0/uk.co.lutraconsulting/files
+    QStringList split = QDir::homePath().split( "/" ); // something like /data/user/0/si.co.level2/files
 
     QFileInfo usrDir( "/storage/emulated/" + split[2] + "/" );
     dataPathRaw = usrDir.path() + "/" + dataPathRaw;
@@ -402,11 +402,11 @@ void AndroidUtils::callCamera( const QString &targetPath )
 
   const QString IMAGE_CAPTURE_ACTION = QString( "android.media.action.IMAGE_CAPTURE" );
 
-  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "uk.co.lutraconsulting.CameraActivity" ) );
+  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "si.co.level2.CameraActivity" ) );
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
 
-  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "uk.co.lutraconsulting" ) );
-  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "uk.co.lutraconsulting.CameraActivity" ) );
+  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "si.co.level2" ) );
+  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "si.co.level2.CameraActivity" ) );
 
   intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), className.object<jstring>() );
 

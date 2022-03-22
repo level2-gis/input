@@ -1,4 +1,4 @@
-package uk.co.lutraconsulting;
+package si.co.level2;
 
 import android.app.Activity;
 import android.hardware.Sensor;

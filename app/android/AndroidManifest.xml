@@ -11,7 +11,7 @@
                  android:extractNativeLibs="true"
                  android:preserveLegacyExternalStorage="true">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
-                  android:name="uk.co.lutraconsulting.InputActivity"
+                  android:name="si.co.level2.InputActivity"
                   android:label="Input"
                   android:screenOrientation="unspecified"
                   android:launchMode="singleTop"
@@ -70,12 +70,12 @@
         </activity>
 
         <!-- Activity Android native camera -->
-        <activity android:name="uk.co.lutraconsulting.CameraActivity" android:label="Input" android:parentActivityName="uk.co.lutraconsulting.InputActivity"
+        <activity android:name="si.co.level2.CameraActivity" android:label="Input" android:parentActivityName="si.co.level2.InputActivity"
         android:configChanges="screenLayout|orientation|screenSize">
              <meta-data android:name="android.app.lib_name" android:value="-- %%INSERT_APP_LIB_NAME%% --"/>
         </activity>
 
-        <provider android:name="android.support.v4.content.FileProvider" android:authorities="uk.co.lutraconsulting.fileprovider" android:exported="false" android:grantUriPermissions="true">
+        <provider android:name="android.support.v4.content.FileProvider" android:authorities="si.co.level2.fileprovider" android:exported="false" android:grantUriPermissions="true">
              <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths">
              </meta-data>
         </provider>
